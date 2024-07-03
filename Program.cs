@@ -57,6 +57,7 @@ Console.WriteLine("88aaaaa88a 88 88 .d8888b. d8888P .d8888b. 88d888b. dP    dP .
 Console.WriteLine("88     88  88 88 88'  `88   88   88'  `88 88'  `88 88    88 Y8ooooo.");
 Console.WriteLine("88     88  88 88 88.  .88   88   88.  .88 88.  .88 88.  .88       88");
 Console.WriteLine("88     88  dP dP `88888P'   dP   `88888P' 88Y8888' `88888P' `88888P'");
+Console.WriteLine();
 
 Console.Write("Donne ton nom : ");
 var askedName = Console.ReadLine();
@@ -69,18 +70,18 @@ var newPerson = new Person
 Console.WriteLine($"Salut l'ami {newPerson.Firstname}");
 Console.WriteLine();
 
-// déclartion des variables composant le chemin et le nom du fichier user.firstnamedictionnary.txt 
+// Déclarer des variables composant le chemin et le nom du fichier userfirstname-dictionnary.txt 
 string filePath = "C:\\repos\\";
 string fileName = ($"{newPerson.Firstname}-dictionary.txt");
 
-//instansiation d'une liste de mots 
+// Instancier une liste de mots 
 var newListMot = new List<Mot>();
 var line = "";
 
 
 if (File.Exists(Path.Combine(filePath, fileName)))
 {
-    ///Ouverture en mode lecture du fichier
+    // Ouvrir en mode lecture du fichier
     using (StreamReader streamReader = new StreamReader(Path.Combine(filePath, fileName)))
     {
         // Lire la première ligne
@@ -110,10 +111,9 @@ if (File.Exists(Path.Combine(filePath, fileName)))
         }
     }
 }
-
-
 else
 { Console.WriteLine("nous allons creer un dictionnaire à ton nom"); }
+
 int nombreDeMotsEnChiffres = 666;
 
 while (nombreDeMotsEnChiffres < 1 || nombreDeMotsEnChiffres > 10)
@@ -128,9 +128,7 @@ while (nombreDeMotsEnChiffres < 1 || nombreDeMotsEnChiffres > 10)
 
 var listAddedWords = new List<Mot>();
 
-
 Console.WriteLine($"Tu as choisis d'ajouter {nombreDeMotsEnChiffres} mots.");
-
 
 var listeMots = new List<Mot>();
 
@@ -138,11 +136,10 @@ for (var i = 0; i < nombreDeMotsEnChiffres; i++)
 {
     Console.Write($"Ajoute le mot N° {i + 1} : ");
 
-    //var motEnPlus = Console.ReadLine();
-
-    // Demande le nouveau mot
+    // Demander le nouveau mot
     var newWord = Console.ReadLine();
-    // Test s'il existe déjà
+
+    // Tester s'il existe déjà
     bool wordExists = newListMot.Exists(m => m.MotFr == newWord);
 
     if (!wordExists)
@@ -157,7 +154,7 @@ for (var i = 0; i < nombreDeMotsEnChiffres; i++)
     }
 }
 
-///ouverture en mode écriture du fichier userfirstnamedictionnary 
+// Ouvrir en mode écriture du fichier userfirstname-dictionnary 
 StreamWriter streamWriter = new StreamWriter(Path.Combine(filePath, fileName), true);
 
 // Ecrire les nouveaux mots dans la console et dans le dictionary.txt
@@ -168,14 +165,13 @@ foreach (var mot in listAddedWords)
     streamWriter.WriteLine(mot.MotFr);
 }
 
-
-// affichage des nouveaux mots dans la console et consignation dans  le dictionnary.txt
+// Afficher des nouveaux mots dans la console et consignation dans le dictionnary.txt
 foreach (var mot in listeMots)
 {
     Console.WriteLine($"La classe écrit : {mot.MotFr}");
     streamWriter.WriteLine(mot.MotFr);
 }
-///fermeture de userfirstnamedictionnary
+// Fermer userfirstname-dictionnary
 streamWriter.Close();
 
 // Lire le fichier dictionnary.txt
@@ -208,15 +204,11 @@ while (line != null)
     line = inputFile.ReadLine();
 }
 
-
-//Fermer le fichier dictionary.txt
+// Fermer le fichier dictionary.txt
 inputFile.Close();
 
 
-
-
 // TODO
-// One dictionary per user 
 // Refactor the code
 // Add the translation in english, in spanish
 // Add question on words
