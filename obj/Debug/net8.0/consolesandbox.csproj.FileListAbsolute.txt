@@ -1,0 +1,15 @@
+C:\repos\consolesandbox\bin\Debug\net8.0\consolesandbox.exe
+C:\repos\consolesandbox\bin\Debug\net8.0\consolesandbox.deps.json
+C:\repos\consolesandbox\bin\Debug\net8.0\consolesandbox.runtimeconfig.json
+C:\repos\consolesandbox\bin\Debug\net8.0\consolesandbox.dll
+C:\repos\consolesandbox\bin\Debug\net8.0\consolesandbox.pdb
+C:\repos\consolesandbox\obj\Debug\net8.0\consolesandbox.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\consolesandbox\obj\Debug\net8.0\consolesandbox.AssemblyInfoInputs.cache
+C:\repos\consolesandbox\obj\Debug\net8.0\consolesandbox.AssemblyInfo.cs
+C:\repos\consolesandbox\obj\Debug\net8.0\consolesandbox.csproj.CoreCompileInputs.cache
+C:\repos\consolesandbox\obj\Debug\net8.0\consolesandbox.sourcelink.json
+C:\repos\consolesandbox\obj\Debug\net8.0\consolesandbox.dll
+C:\repos\consolesandbox\obj\Debug\net8.0\refint\consolesandbox.dll
+C:\repos\consolesandbox\obj\Debug\net8.0\consolesandbox.pdb
+C:\repos\consolesandbox\obj\Debug\net8.0\consolesandbox.genruntimeconfig.cache
+C:\repos\consolesandbox\obj\Debug\net8.0\ref\consolesandbox.dll
