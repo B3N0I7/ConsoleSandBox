@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("consolesandbox")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60b91ef62312fb948b49daecf53bb57ecb36f3b4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd2f9d93a7a70568ddfed0e6a1f9aff902c2a6f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("consolesandbox")]
 [assembly: System.Reflection.AssemblyTitleAttribute("consolesandbox")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
