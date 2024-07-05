@@ -1,4 +1,4 @@
-﻿namespace consolesandbox.Folder
+﻿namespace consolesandbox.Models
 {
     public class Mot
     {

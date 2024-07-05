@@ -36,7 +36,8 @@
 //    }
 //}
 
-using consolesandbox.Folder;
+using consolesandbox.Models;
+using consolesandbox.UseCases;
 
 Console.WriteLine("****************************************");
 Console.WriteLine("*             BAC A SABLE              *");
@@ -49,7 +50,7 @@ Console.WriteLine("88        88'  `88 88     88'  `88 88    88 88 88'  `88 88ooo
 Console.WriteLine("88        88.  .88 88     88.  .88 88.  .88 88 88    88 88.  ... ");
 Console.WriteLine("88888888P `88888P8 dP     `88888P' `88888P' dP dP    dP `88888P' ");
 Console.WriteLine();
-Console.WriteLine("####    ####    ####    ####    ####    ####    ####    ####    #");
+Console.WriteLine("####    ####    ####    ####    ####    ####    ####    ####    ####");
 Console.WriteLine();
 Console.WriteLine(" .d888888  dP dP            dP            dP");
 Console.WriteLine("d8'    88  88 88            88            88");
@@ -59,8 +60,12 @@ Console.WriteLine("88     88  88 88 88.  .88   88   88.  .88 88.  .88 88.  .88  
 Console.WriteLine("88     88  dP dP `88888P'   dP   `88888P' 88Y8888' `88888P' `88888P'");
 Console.WriteLine();
 
-Console.Write("Donne ton nom : ");
-var askedName = Console.ReadLine();
+//BenchmarkRunner.Run<DateParserBenchmarcks>();
+
+//Console.Write("Donne ton nom : ");
+//var askedName = Console.ReadLine();
+// Devient :
+var askedName = PersonInteractions.GetUserName();
 
 var newPerson = new Person
 {
