@@ -16,8 +16,8 @@
 
         public int GetYearFromSubstring(string dateTimeAsString)
         {
-            var inderOfHyphen = dateTimeAsString.IndexOf("-");
-            return int.Parse(dateTimeAsString.Substring(0, inderOfHyphen));
+            var indexOfHyphen = dateTimeAsString.IndexOf("-");
+            return int.Parse(dateTimeAsString.Substring(0, indexOfHyphen));
         }
 
         public int GetYearFromSpan(ReadOnlySpan<char> dateTimeAsSpan)

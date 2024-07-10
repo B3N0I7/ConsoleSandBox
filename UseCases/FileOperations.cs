@@ -16,7 +16,14 @@ namespace consolesandbox.UseCases
 
                     while ((line = streamReader.ReadLine()) != null)
                     {
-                        words.Add(new Mot { MotFr = line });
+                        string[] wordsInLine = line.Split('\t');
+                        if (wordsInLine.Length > 0)
+                        {
+                            for (var i = 0; i < wordsInLine.Length; i = i + 3)
+                            {
+                                words.Add(new Mot { MotFr = wordsInLine[i], MotEn = wordsInLine[i + 1], MotEs = wordsInLine[i + 2] });
+                            }
+                        }
                     }
                 }
             }
@@ -30,9 +37,8 @@ namespace consolesandbox.UseCases
             {
                 foreach (var word in words)
                 {
-                    streamWriter.WriteLine(word.MotFr);
+                    streamWriter.WriteLine($"{word.MotFr}\t{word.MotEn}\t{word.MotEs}");
                 }
-
             }
         }
 

@@ -12,17 +12,23 @@ namespace consolesandbox.UseCases
             {
                 Console.Write(($"Ajoute le mot N°{i + 1} : "));
 
-                var newWord = Console.ReadLine();
+                var newWordFr = Console.ReadLine();
 
-                if (!existingWords.Exists(w => w.MotFr == newWord) && !addedWords.Exists(w => w.MotFr == newWord))
+                if (!existingWords.Exists(w => w.MotFr == newWordFr) && !addedWords.Exists(w => w.MotFr == newWordFr))
                 {
-                    addedWords.Add(new Mot { MotFr = newWord });
+                    Console.Write("Ajoute la traduction en anglais : ");
+                    var newWordEn = Console.ReadLine();
 
-                    Console.WriteLine($"Le mot '{newWord}' a été ajouté.");
+                    Console.Write("Ajoute la traduction en espagnol : ");
+                    var newWordEs = Console.ReadLine();
+                    addedWords.Add(new Mot { MotFr = newWordFr, MotEn = newWordEn, MotEs = newWordEs });
+
+                    Console.WriteLine($"Le mot '{newWordFr}' a été ajouté, sa traduction en anglais est '{newWordEn}' et sa traduction en espagnol est '{newWordEs}.");
+
                 }
                 else
                 {
-                    Console.WriteLine($"Le mot '{newWord}' est déjà dans le dictionnaire.");
+                    Console.WriteLine($"Le mot '{newWordFr}' est déjà dans le dictionnaire.");
                 }
             }
 
