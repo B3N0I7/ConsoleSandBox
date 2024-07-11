@@ -1,4 +1,4 @@
-﻿namespace consolesandbox.UseCases
+﻿namespace consolesandbox.Helpers
 {
     public class PersonInteractions
     {
@@ -9,13 +9,14 @@
             return Console.ReadLine();
         }
 
-        public static int GetWordCount()
+        public static int GetWordCount(string question)
         {
             int numberOfWordsInInteger = 0;
 
             while (numberOfWordsInInteger < 1 || numberOfWordsInInteger > 10)
             {
-                Console.Write("Combien de mots veux-tu ajouter (1-10) ? ");
+                //Console.Write("Combien de mots veux-tu ajouter (1-10) ? ");
+                Console.Write(question);
 
                 if (int.TryParse(Console.ReadLine(), out numberOfWordsInInteger))
                 {

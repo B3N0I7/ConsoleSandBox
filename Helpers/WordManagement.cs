@@ -1,6 +1,6 @@
 ﻿using consolesandbox.Models;
 
-namespace consolesandbox.UseCases
+namespace consolesandbox.Helpers
 {
     public class WordManagement
     {

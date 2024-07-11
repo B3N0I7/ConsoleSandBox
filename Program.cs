@@ -1,5 +1,5 @@
-﻿using consolesandbox.Models;
-using consolesandbox.UseCases;
+﻿using consolesandbox.Helpers;
+using consolesandbox.Models;
 
 public class Program
 {
@@ -64,7 +64,7 @@ public class Program
         switch (response.ToUpper())
         {
             case "A":
-                int numberOfWordsInInteger = PersonInteractions.GetWordCount();
+                int numberOfWordsInInteger = PersonInteractions.GetWordCount("Combien de mots veux-tu ajouter (1-10) ? ");
 
                 Console.WriteLine($"Tu as choisi d'ajouter {numberOfWordsInInteger} mots.");
 
@@ -78,25 +78,57 @@ public class Program
                 break;
             case "Q":
                 Console.WriteLine("Let's go to the quiz !");
+                Console.WriteLine($"Que veux-tu faire {newPerson.Firstname} ?");
+                Console.WriteLine("1 : Français => Anglais");
+                Console.WriteLine("2 : Français => Espagnol");
+                Console.WriteLine("3 : Anglais => Français");
+                Console.WriteLine("4 : Espagnol => Français");
+                var responseQuiz = Console.ReadLine();
+                switch (responseQuiz)
+                {
+                    case "1":
+                        Console.WriteLine("Français => Anglais");
+                        filePath = Path.Combine("C:\\repos\\", $"{newPerson.Firstname}-dictionary.txt");
+
+                        existingWords = FileOperations.ReadWordsFromFile(filePath);
+
+                        Random rand = new Random();
+
+                        numberOfWordsInInteger = PersonInteractions.GetWordCount($"Combien de mots veux-tu traduire (1-{existingWords.Count}) ? ");
+                        for (var i = 0; i < numberOfWordsInInteger; i++)
+                        {
+                            var numberRandomWord = rand.Next(0, existingWords.Count);
+
+                            Console.WriteLine($"Traduis {existingWords[numberRandomWord].MotFr}");
+                            responseQuiz = Console.ReadLine();
+                            if (responseQuiz == existingWords[numberRandomWord].MotEn)
+                            {
+                                ShowManyWays.ShowYellow("Bravo !");
+                            }
+                            else
+                            {
+                                ShowManyWays.ShowDarkCyan($"Ce n'est pas {responseQuiz}, mais {existingWords[numberRandomWord].MotEn}.");
+                            }
+                        }
+                        break;
+                    case "2":
+                        Console.WriteLine("Français => Espagnol");
+                        break;
+                    case "3":
+                        Console.WriteLine("Anglais => Français");
+                        break;
+                    case "4":
+                        Console.WriteLine("Espagnol => Français");
+                        break;
+                    default:
+                        ShowManyWays.ShowYellow("Au revoir");
+                        break;
+                }
                 break;
             default:
                 Console.WriteLine($"{newPerson.Firstname}, tu dois répondre 'A' ou 'Q' !");
                 break;
         }
-
-
-
-        //int numberOfWordsInInteger = PersonInteractions.GetWordCount();
-
-        //Console.WriteLine($"Tu as choisi d'ajouter {numberOfWordsInInteger} mots.");
-
-        //var addedWords = WordManagement.AddNewWords(numberOfWordsInInteger, existingWords);
-
-        //FileOperations.WriteWordsToFile(filePath, addedWords);
-
-        //Console.WriteLine("Voici le contenu actuel du dictionnaire :");
-
-        //FileOperations.PrintFileContent(filePath);
     }
 
     static string AskName()
@@ -116,7 +148,9 @@ public class Program
 
 
 // TODO
-// Add quiz
+// Continue quiz (En>FR, Fr>Es, Es>Fr)
+// Refactor
+// Add Unit Tests
 
 
 
