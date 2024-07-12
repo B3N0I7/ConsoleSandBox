@@ -34,5 +34,60 @@ namespace consolesandbox.Helpers
 
             return addedWords;
         }
+
+        public static void LoadQuiz(string person, string typeQuiz)
+        {
+            var filePath = Path.Combine("C:\\repos\\", $"{person}-dictionary.txt");
+
+            var existingWords = FileOperations.ReadWordsFromFile(filePath);
+
+            Random rand = new Random();
+
+            var numberOfWordsInInteger = PersonInteractions.GetWordCount($"Combien de mots veux-tu traduire (1-{existingWords.Count}) ? ");
+
+            for (var i = 0; i < numberOfWordsInInteger; i++)
+            {
+                var numberRandomWord = rand.Next(0, existingWords.Count);
+
+                string wordToTranslate = string.Empty;
+                string correctAnswer = string.Empty;
+
+                switch (typeQuiz)
+                {
+                    case "FrEn":
+                        wordToTranslate = existingWords[numberRandomWord].MotFr;
+                        correctAnswer = existingWords[numberRandomWord].MotEn;
+                        break;
+                    case "EnFr":
+                        wordToTranslate = existingWords[numberRandomWord].MotEn;
+                        correctAnswer = existingWords[numberRandomWord].MotFr;
+                        break;
+                    case "FrEs":
+                        wordToTranslate = existingWords[numberRandomWord].MotFr;
+                        correctAnswer = existingWords[numberRandomWord].MotEs;
+                        break;
+                    case "EsFr":
+                        wordToTranslate = existingWords[numberRandomWord].MotEs;
+                        correctAnswer = existingWords[numberRandomWord].MotFr;
+                        break;
+                    default:
+                        Console.WriteLine("Quiz inconnu !");
+                        break;
+                }
+
+                Console.WriteLine($"Traduis {wordToTranslate}");
+
+                var responseQuiz = Console.ReadLine();
+
+                if (responseQuiz == correctAnswer)
+                {
+                    ShowManyWays.ShowYellow("Bravo !");
+                }
+                else
+                {
+                    ShowManyWays.ShowDarkCyan($"Ce n'est pas {responseQuiz}, mais {correctAnswer}.");
+                }
+            }
+        }
     }
 }
