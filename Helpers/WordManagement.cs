@@ -53,31 +53,7 @@ namespace consolesandbox.Helpers
             {
                 var numberRandomWord = rand.Next(0, existingWords.Count);
 
-                string wordToTranslate = string.Empty;
-                string correctAnswer = string.Empty;
-
-                switch (typeQuiz)
-                {
-                    case "FrEn":
-                        wordToTranslate = existingWords[numberRandomWord].MotFr;
-                        correctAnswer = existingWords[numberRandomWord].MotEn;
-                        break;
-                    case "EnFr":
-                        wordToTranslate = existingWords[numberRandomWord].MotEn;
-                        correctAnswer = existingWords[numberRandomWord].MotFr;
-                        break;
-                    case "FrEs":
-                        wordToTranslate = existingWords[numberRandomWord].MotFr;
-                        correctAnswer = existingWords[numberRandomWord].MotEs;
-                        break;
-                    case "EsFr":
-                        wordToTranslate = existingWords[numberRandomWord].MotEs;
-                        correctAnswer = existingWords[numberRandomWord].MotFr;
-                        break;
-                    default:
-                        Console.WriteLine("Quiz inconnu !");
-                        break;
-                }
+                (string wordToTranslate, string correctAnswer) = GetLanguages(existingWords, numberRandomWord, typeQuiz);
 
                 if (!ListofWords.Contains(wordToTranslate))
                 {
@@ -104,6 +80,36 @@ namespace consolesandbox.Helpers
             }
 
             Console.WriteLine($"{person}, tu as donné {goodAnswers} bonne(s) réponse(s) sur {numberOfWordsInInteger} possibles.");
+        }
+
+        private static (string, string) GetLanguages(List<Mot> words, int index, string typeQuiz)
+        {
+            string wordToTranslate;
+            string correctAnswer;
+
+            switch (typeQuiz)
+            {
+                case "FrEn":
+                    wordToTranslate = words[index].MotFr;
+                    correctAnswer = words[index].MotEn;
+                    break;
+                case "EnFr":
+                    wordToTranslate = words[index].MotEn;
+                    correctAnswer = words[index].MotFr;
+                    break;
+                case "FrEs":
+                    wordToTranslate = words[index].MotFr;
+                    correctAnswer = words[index].MotEs;
+                    break;
+                case "EsFr":
+                    wordToTranslate = words[index].MotEs;
+                    correctAnswer = words[index].MotFr;
+                    break;
+                default:
+                    throw new ArgumentException("Quiz type not recognized", nameof(typeQuiz));
+            }
+
+            return (wordToTranslate, correctAnswer);
         }
     }
 }
