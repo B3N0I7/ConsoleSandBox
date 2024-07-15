@@ -45,6 +45,10 @@ namespace consolesandbox.Helpers
 
             var numberOfWordsInInteger = PersonInteractions.GetWordCount($"Combien de mots veux-tu traduire (1-{existingWords.Count}) ? ");
 
+            List<string> ListofWords = new List<string>();
+
+            var goodAnswers = 0;
+
             for (var i = 0; i < numberOfWordsInInteger; i++)
             {
                 var numberRandomWord = rand.Next(0, existingWords.Count);
@@ -75,19 +79,31 @@ namespace consolesandbox.Helpers
                         break;
                 }
 
-                Console.WriteLine($"Traduis {wordToTranslate}");
-
-                var responseQuiz = Console.ReadLine();
-
-                if (responseQuiz == correctAnswer)
+                if (!ListofWords.Contains(wordToTranslate))
                 {
-                    ShowManyWays.ShowYellow("Bravo !");
+                    ListofWords.Add(wordToTranslate);
+
+                    Console.WriteLine($"Traduis {wordToTranslate}");
+
+                    var responseQuiz = Console.ReadLine();
+
+                    if (responseQuiz == correctAnswer)
+                    {
+                        goodAnswers++;
+                        ShowManyWays.ShowYellow("Bravo !");
+                    }
+                    else
+                    {
+                        ShowManyWays.ShowDarkCyan($"Ce n'est pas {responseQuiz}, mais {correctAnswer}.");
+                    }
                 }
                 else
                 {
-                    ShowManyWays.ShowDarkCyan($"Ce n'est pas {responseQuiz}, mais {correctAnswer}.");
+                    i--;
                 }
             }
+
+            Console.WriteLine($"{person}, tu as donné {goodAnswers} bonne(s) réponse(s) sur {numberOfWordsInInteger} possibles.");
         }
     }
 }

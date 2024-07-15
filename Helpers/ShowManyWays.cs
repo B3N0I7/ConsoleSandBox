@@ -2,6 +2,12 @@
 {
     public class ShowManyWays
     {
+        public static void ShowInColor(ConsoleColor textColor, string textToShow)
+        {
+            Console.ForegroundColor = textColor;
+            Console.WriteLine(textToShow);
+            Console.ResetColor();
+        }
         public static void ShowGreen(string textToShow)
         {
             Console.ForegroundColor = ConsoleColor.Green;

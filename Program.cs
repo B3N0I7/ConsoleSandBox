@@ -5,20 +5,19 @@ public class Program
 {
     static void Main(string[] args)
     {
-        ShowManyWays.ShowGreen("dP                 .8888b                   oo                   ");
-        ShowManyWays.ShowGreen("88                 88                                            ");
-        ShowManyWays.ShowYellow("88        .d8888b. 88aaa  .d8888b. dP    dP dP 88d888b. .d8888b. ");
-        ShowManyWays.ShowYellow("88        88'  `88 88     88'  `88 88    88 88 88'  `88 88ooood8 ");
-        ShowManyWays.ShowRed("88        88.  .88 88     88.  .88 88.  .88 88 88    88 88.  ... ");
-        ShowManyWays.ShowRed("88888888P `88888P8 dP     `88888P' `88888P' dP dP    dP `88888P' ");
+        ShowManyWays.ShowInColor(ConsoleColor.Green, "dP                 .8888b                   oo                   ");
+        ShowManyWays.ShowInColor(ConsoleColor.Green, "88                 88                                            ");
+        ShowManyWays.ShowInColor(ConsoleColor.Green, "88        .d8888b. 88aaa  .d8888b. dP    dP dP 88d888b. .d8888b. ");
+        ShowManyWays.ShowInColor(ConsoleColor.Green, "88        88'  `88 88     88'  `88 88    88 88 88'  `88 88ooood8 ");
+        ShowManyWays.ShowInColor(ConsoleColor.Yellow, "88        88.  .88 88     88.  .88 88.  .88 88 88    88 88.  ... ");
+        ShowManyWays.ShowInColor(ConsoleColor.Yellow, "88888888P `88888P8 dP     `88888P' `88888P' dP dP    dP `88888P' ");
         Console.WriteLine();
-        Console.WriteLine();
-        ShowManyWays.ShowRed(" .d888888  dP dP            dP            dP");
-        ShowManyWays.ShowRed("d8'    88  88 88            88            88");
-        ShowManyWays.ShowYellow("88aaaaa88a 88 88 .d8888b. d8888P .d8888b. 88d888b. dP    dP .d8888b.");
-        ShowManyWays.ShowYellow("88     88  88 88 88'  `88   88   88'  `88 88'  `88 88    88 Y8ooooo.");
-        ShowManyWays.ShowGreen("88     88  88 88 88.  .88   88   88.  .88 88.  .88 88.  .88       88");
-        ShowManyWays.ShowGreen("88     88  dP dP `88888P'   dP   `88888P' 88Y8888' `88888P' `88888P'");
+        ShowManyWays.ShowInColor(ConsoleColor.Yellow, " .d888888  dP dP            dP            dP");
+        ShowManyWays.ShowInColor(ConsoleColor.Yellow, "d8'    88  88 88            88            88");
+        ShowManyWays.ShowInColor(ConsoleColor.Red, "88aaaaa88a 88 88 .d8888b. d8888P .d8888b. 88d888b. dP    dP .d8888b.");
+        ShowManyWays.ShowInColor(ConsoleColor.Red, "88     88  88 88 88'  `88   88   88'  `88 88'  `88 88    88 Y8ooooo.");
+        ShowManyWays.ShowInColor(ConsoleColor.Red, "88     88  88 88 88.  .88   88   88.  .88 88.  .88 88.  .88       88");
+        ShowManyWays.ShowInColor(ConsoleColor.Red, "88     88  dP dP `88888P'   dP   `88888P' 88Y8888' `88888P' `88888P'");
         Console.WriteLine();
 
         var askedName = PersonInteractions.GetUserName();

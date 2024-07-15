@@ -15,7 +15,6 @@
 
             while (numberOfWordsInInteger < 1 || numberOfWordsInInteger > 10)
             {
-                //Console.Write("Combien de mots veux-tu ajouter (1-10) ? ");
                 Console.Write(question);
 
                 if (int.TryParse(Console.ReadLine(), out numberOfWordsInInteger))
